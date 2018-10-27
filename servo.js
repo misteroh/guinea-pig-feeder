@@ -15,7 +15,7 @@ const settings = {
 servo.on('ready', () => {
   servo.configure(servo1, settings.minDutyCycle, settings.maxDutyCycle, () => {
     servo.read(servo1, (err, reading) => {
-      console.log('after', reading);
+      console.log('Initial Reading: ', reading);
     });
 
     servo.move(servo1, 1);
@@ -24,7 +24,7 @@ servo.on('ready', () => {
       servo.move(servo1, 0);
 
       servo.read(servo1, (err, reading) => {
-        console.log('after', reading);
+        console.log('Final Reading: ', reading);
       });
     }, 500);
   });
